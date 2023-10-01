@@ -1,12 +1,12 @@
 #include "graphics.h"
 #include <SFML/Graphics.hpp>
 
-constexpr int CELL_SIZE = 5;
+constexpr int CELL_SIZE = 3;
 
 sf::RenderWindow window;
 
-void createWindow(int gridHeight, int gridWidth) {
-    window.create(sf::VideoMode(CELL_SIZE * gridHeight, CELL_SIZE * gridWidth), "Game of life");
+void createWindow(int gridWidth, int gridHeight) {
+    window.create(sf::VideoMode(CELL_SIZE * gridWidth, CELL_SIZE * gridHeight), "Game of life");
 }
 void setCell(int x, int y) {
     sf::RectangleShape cell;
@@ -15,7 +15,7 @@ void setCell(int x, int y) {
     cell.setOutlineColor(sf::Color::Green);
     window.draw(cell);
 }
-void flush() {
+void flushWindow() {
     window.display();
     window.clear();
 }
@@ -31,4 +31,12 @@ bool closeWindowEvent() {
         }
     }
     return false;
+}
+int randInt() {
+    static bool called = false;
+    if (!called) {
+        std::srand(time(nullptr));
+        called = true;
+    }
+    return std::rand();
 }
