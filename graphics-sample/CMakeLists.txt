@@ -4,6 +4,12 @@ project(game-of-life LANGUAGES CXX)
 
 include_directories(include)
 
-add_executable(game-of-life
-    src/main.cpp
-)
+include(FetchContent)
+#### SFML ####
+FetchContent_Declare(SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 2.6.x)
+FetchContent_MakeAvailable(SFML)
+
+add_executable(game-of-life src/main.cpp src/graphics.cpp)
+target_link_libraries(game-of-life PRIVATE sfml-graphics)
