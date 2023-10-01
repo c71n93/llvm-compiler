@@ -1,7 +1,7 @@
 #pragma once
 
-extern void createWindow(int gridHeight, int gridWidth);
+extern void createWindow(int gridWidth, int gridHeight);
 extern void setCell(int x, int y);
-extern void flush();
+extern void flushWindow();
 extern bool closeWindowEvent();
-extern int myRand();
+extern int randInt();
