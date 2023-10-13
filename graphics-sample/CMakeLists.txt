@@ -11,15 +11,15 @@ FetchContent_Declare(SFML
         GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_library(gol-graphics)
-target_sources(gol-graphics PRIVATE
-    src/graphics.cpp
+add_library(sim-graphics)
+target_sources(sim-graphics PRIVATE
+        src/sim-graphics.cpp
 )
-target_link_libraries(gol-graphics PUBLIC
+target_link_libraries(sim-graphics PUBLIC
     sfml-graphics
 )
 
-add_executable(game-of-life src/main.cpp)
+add_executable(game-of-life src/main.cpp src/app.cpp)
 target_link_libraries(game-of-life PRIVATE
-    gol-graphics
+    sim-graphics
 )
