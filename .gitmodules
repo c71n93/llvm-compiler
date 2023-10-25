@@ -1,0 +1,3 @@
+[submodule "graphics-sample/third_party/profiler"]
+	path = graphics-sample/third_party/profiler
+	url = https://github.com/c71n93/profiler
