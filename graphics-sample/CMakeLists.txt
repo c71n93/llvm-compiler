@@ -19,7 +19,9 @@ target_link_libraries(sim-graphics PUBLIC
     sfml-graphics
 )
 
-add_executable(game-of-life src/main.cpp src/app.cpp)
+add_executable(game-of-life src/main.cpp)
 target_link_libraries(game-of-life PRIVATE
     sim-graphics
+    ${CMAKE_SOURCE_DIR}/third_party/profiler/app.o
+    ${CMAKE_SOURCE_DIR}/third_party/profiler/src/prof-functions/log.cpp
 )
